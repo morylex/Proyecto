@@ -1,5 +1,8 @@
 package Clases;
 
+import java.io.*;
+import javax.swing.*;
+
 public class Libreria {
     public int ValidaCampoEntero(String campo){
         int n=2;
@@ -23,6 +26,8 @@ public class Libreria {
         }while (!sc.hasNextLine());*/
         return cadena;
     }
+
+    //Algoritmo InsertSort
     public int[] OrdenarArreglo(int nelementos){
         int arreglo[], posicion, aux;
 
@@ -47,4 +52,37 @@ public class Libreria {
         }
         return arreglo;
     }
+
+    //Metodo de lectura para archivos .csv
+    private BufferedReader lectura;//me permite leer el archivo
+    private String lineas;//recibe la linea de cada fila
+    private String almacenamiento[]=null;//almacena cada linea que leemos
+    
+    public void lecturaArchivo(String nombreArchivo){
+        try{ //el try lo exige el bufferedreader
+            lectura=new BufferedReader(new FileReader(nombreArchivo));//creamos el objeto con el parametro del archivo
+            while((lineas=lectura.readLine()) !=null){ //leemos cada linea y la guardamos en nuestra variable lineas, en caso sea null
+                almacenamiento=lineas.split(";"); //separara las lineas y las guardaremos en almacenamiento
+                imprimirLineas();
+                System.out.println();
+                System.out.println();
+            }
+            lectura.close(); //cuando acabe cerraremos la lectura y daremos valores nulos a las variables
+            lineas=null;
+            almacenamiento=null;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    
+    public void imprimirLineas(){
+        for(int i=0;i<almacenamiento.length;i++){
+            System.out.print(almacenamiento[i]+"  |  ");
+        }
+    }
+
+    //public static void main(String[] args) {
+        //lectorCSV nombredeobjeto=new lectorCSV();
+        //leer.lecturaArchivo("ruta del archivo.csv");
+    //}
 }
