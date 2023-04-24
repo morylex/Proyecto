@@ -1,13 +1,7 @@
 package Clases;
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Menu extends JFrame{
     private JMenuBar menuBar=new JMenuBar();
