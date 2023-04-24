@@ -33,8 +33,6 @@ public class Menu extends JFrame{
                 dispose();
             }
         });
-
-        
         
         setLocationRelativeTo(null);
         setTitle("Menu Principal");

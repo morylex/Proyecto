@@ -16,7 +16,6 @@ public class Proyecto extends JFrame {
     private JButton btnCancelar = new JButton("Salir");
     public static void main(String[] args) {
         new Proyecto();
-        // principal.show();
     }
 
     public Proyecto() {
