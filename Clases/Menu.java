@@ -11,7 +11,15 @@ public class Menu extends JFrame{
     private JMenuItem item_02=new JMenuItem("Estadistica");
     private JMenuItem item_03=new JMenuItem("Cerrar");
     private JMenuItem item_04=new JMenuItem("Acerca de");
+
+    //private JFrame frameBusqueda;
+    //private JFrame frameEstadistica=new JFrame("Estadistica");
+    private JDesktopPane desktopPane=new JDesktopPane();
+    private JInternalFrame jinternal_busqueda;
+    private JInternalFrame jinternal_estadistica=new JInternalFrame("Internal Estadistica");
+
     public Menu(){
+        this.getContentPane().add(desktopPane);
         setJMenuBar(menuBar);
         menuBar.add(menu_01);
         menuBar.add(menu_02);
@@ -20,6 +28,22 @@ public class Menu extends JFrame{
         menu_01.add(item_03);
         menu_02.add(item_04);
 
+        item_01.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //frameBusqueda=new JFrame("Busqueda");
+                //frameBusqueda.getContentPane().add(desktopPane);
+                jinternal_busqueda=new JInternalFrame("Internal Principal");
+                jinternal_busqueda.pack();
+                jinternal_busqueda.setResizable(true);
+                jinternal_busqueda.setClosable(true);
+                jinternal_busqueda.setVisible(true);
+                desktopPane.add(jinternal_busqueda);
+                //frameBusqueda.setSize(500, 500);
+                //frameBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                //frameBusqueda.setVisible(true);
+            }
+        });
         item_03.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,4 +62,6 @@ public class Menu extends JFrame{
             super.getContentPane().setVisible(true);            
         }        
     }
+
+    
 }
